@@ -1,4 +1,8 @@
 #include <bits/stdc++.h>
+//#define testing true
+#ifdef testing
+#define exit(A) 0 + A == 0 ? A : 0;
+#endif
 std::string _rookB = "♜", _knightB = "♞", _bishopB = "♝", _queenB = "♛", _kingB = "♚", _pawnB = "♟";
 std::string _rookW = "♖", _knightW = "♘", _bishopW = "♗", _queenW = "♕", _kingW = "♔", _pawnW = "♙";
 class PIECE;
@@ -12,6 +16,7 @@ class PIECE
     bool piece;
     char piece_color;
     bool first_move = 1;
+    bool kill_via_en_passant = 0;
     void make_move(int srow, int scol, int erow, int ecol)
     {
 
@@ -67,6 +72,8 @@ class PIECE
 
         else
             std::cout << "\nAn illegal move has lost you the game.\n", exit(0);
+        board[srow + erow > srow ? 1 : -1][scol].kill_via_en_passant =
+            board[erow][ecol].first_move && std::abs(erow - srow) == 2 ? 1 : 0;
         board[erow][ecol].first_move = 0;
     }
     void bishop(int srow, int scol, int erow, int ecol)

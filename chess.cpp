@@ -54,7 +54,7 @@ void display_board()
     std::cout << "\n";
 }
 
-void make_move()
+void make_move(char colo)
 {
     std::string starting_piece;
     std::cout << "Select a Piece: ";
@@ -62,13 +62,13 @@ void make_move()
     if (starting_piece.size() != 2)
     {
         std::cout << "Bad Input.\n";
-        make_move();
+        make_move(colo);
     }
     int col = tolower(starting_piece[0]) - 97, row = starting_piece[1] - 49;
-    if (row < 0 || row > 7 || col < 0 || col > 7 || !board[row][col].piece)
+    if (row < 0 || row > 7 || col < 0 || col > 7 || !board[row][col].piece || board[row][col].piece_color != colo)
     {
         std::cout << "\nBad Input, that is an illegal piece to select.\n";
-        make_move();
+        make_move(colo);
     }
 second_pos:
     std::string ending_piece;
@@ -92,11 +92,13 @@ second_pos:
 
 int main()
 {
+    // no en passant, no castling, no check/mate. End with ctrl+c
     board_creation();
     display_board();
     while (true)
     {
-        make_move();
+        make_move('w');
+        make_move('b');
     }
     return 0;
 }
