@@ -79,7 +79,7 @@ second_pos:
         std::cout << "Bad Input.\n";
         goto second_pos;
     }
-
+    
     int ecol = tolower(ending_piece[0]) - 97, erow = ending_piece[1] - 49;
     if (erow < 0 || erow > 7 || ecol < 0 || ecol > 7)
     {
@@ -87,6 +87,7 @@ second_pos:
         goto second_pos;
     }
     board[row][col].make_move(row, col, erow, ecol);
+    backupBoard = board;
     display_board();
 }
 
@@ -95,6 +96,7 @@ int main()
     // no en passant, no castling, no check/mate. End with ctrl+c
     board_creation();
     display_board();
+    backupBoard = board;
     while (true)
     {
         make_move('w');
