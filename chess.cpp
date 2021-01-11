@@ -79,7 +79,7 @@ second_pos:
         std::cout << "Bad Input.\n";
         goto second_pos;
     }
-    
+
     int ecol = tolower(ending_piece[0]) - 97, erow = ending_piece[1] - 49;
     if (erow < 0 || erow > 7 || ecol < 0 || ecol > 7)
     {
@@ -100,7 +100,9 @@ int main()
     while (true)
     {
         make_move('w');
+        curr_turn_w++;
         make_move('b');
+        curr_turn_b++;
     }
     return 0;
 }

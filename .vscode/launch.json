@@ -9,7 +9,7 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/chess_debug.o",
-            "args": ["<", "check_enpassant.txt"],
+            "args": ["<", "bishop_movement_test.txt"],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
             "environment": [],
