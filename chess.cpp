@@ -1,6 +1,4 @@
 #include "pieces.h"
-#define blk_sqr "◼"
-#define wht_sqr "◻"
 std::vector<PIECE> pieces;
 std::set<std::string> squares = {blk_sqr, wht_sqr};
 void board_creation()

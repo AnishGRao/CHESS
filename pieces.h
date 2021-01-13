@@ -6,6 +6,8 @@
 #endif
 std::string _rookB = "♜", _knightB = "♞", _bishopB = "♝", _queenB = "♛", _kingB = "♚", _pawnB = "♟";
 std::string _rookW = "♖", _knightW = "♘", _bishopW = "♗", _queenW = "♕", _kingW = "♔", _pawnW = "♙";
+std::string blk_sqr = "◼";
+std::string wht_sqr = "◻";
 class PIECE;
 std::vector<std::vector<PIECE>> board, backupBoard;
 int curr_turn_w = 0, curr_turn_b = 0;
